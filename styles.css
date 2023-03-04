@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css?family=Khula&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: #fff;
+    font-family: "Khula", sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    user-select: none;
+    margin: 0;
+    text-align: center;
+}
+
+a {
+    display: block;
+    margin: 1.2rem auto;
+    color: #fff;
+    text-decoration: none;
+    transition: all .3s;
+    width: 12rem;
+    text-align: center;
+    padding-top:.5rem ;
+    border-radius: 10px;
+}
+
+.a-wrap {
+    transition: all .3s;
+    height: 5rem;
+    width: 14rem;
+}
+.a-wrap:hover {
+    margin-top: .5rem;
+}
+.a-wrap:hover a {
+    color: white;
+    background-color: #304bff;
+}
+.start {
+    font-size: 1.5rem;
+}
+
+h1 {
+    line-height: 1.4;
+    font-size: 4rem;
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    transition: margin 0.5s ease-out;
+    background: linear-gradient(90deg, #29323c 0%, #485563 100%);
+}
+
+.screen.up {
+    margin-top: -100vh;
+}
+
+.time-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+h3 {
+    height: 1rem;
+}
+.time-list li {
+    margin: 0.625rem;
+}
+
+.time-btn {
+    background-color: cornflowerblue;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    padding: .4rem 1rem .2rem 1rem;
+    font-size: 1.5rem;
+    transition: all .3s;
+    border-radius: 8px;
+}
+
+.time-btn:hover {
+    color: black;
+    background-color: #16d9e3;
+}
+
+.hide {
+    opacity: 0;
+}
+.primary {
+    color: #16d9e3;
+}
+
+.board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 31.25rem;
+    height: 31.25rem;
+    background: linear-gradient(118.38deg, #29323c -4.6%, #485563 200.44%);
+    box-shadow: -.5rem -.5rem 1.25rem #2a333d, 0.625rem .45rem 1.25rem #475462;
+    border-radius: 2.1rem;
+    overflow: hidden;
+}
+
+.circle {
+    background: linear-gradient(90deg, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
+    position: absolute;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.end-wrap {
+    display: flex;
+    flex-direction: column;
+}
+.end-wrap h1 {
+    margin: -3rem 0 0 0 ;
+}
+.end-wrap button {
+    background-color: mediumslateblue;
+    color: white;
+    font-weight: bolder;
+    border: none;
+    border-radius: 8px;
+    width: 12rem;
+    height: 3rem;
+    margin: 0 auto;
+    transition: background-color .3s;
+}
+.end-wrap button:hover {
+    background-color: blueviolet;
+    cursor: pointer;
+}
+@media (max-width: 600px) {
+    .board {
+        width: 80vw;
+        height: 40vh;
+    }
+}
