@@ -114,7 +114,7 @@ h3 {
 }
 
 .circle {
-    background: linear-gradient(90deg, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
+    background-color: #16d9e3;
     position: absolute;
     border-radius: 50%;
     cursor: pointer;

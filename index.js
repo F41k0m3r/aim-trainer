@@ -3,6 +3,12 @@ var board = document.querySelector('#board');
 var timeEl = document.querySelector('#time');
 var time;
 var score = 0;
+var colors = ['#FF0000', '#26e3c7', '#b700ff', '#17b000', '#d3a811', '#0008f5', '#ccc2ae', '#3ff523', '#543708'];
+var setColor = function () {
+    var number = Math.floor(Math.random() * colors.length);
+    var color = colors[colors.length - number];
+    return color;
+};
 var setTime = function (time) {
     timeEl.innerHTML = "00:".concat(time);
 };
@@ -11,7 +17,7 @@ var getRandomNumber = function (min, max) {
 };
 var createCircles = function () {
     var circle = document.createElement('div');
-    var size = getRandomNumber(15, 40).toString() + 'px';
+    var size = getRandomNumber(15, 30).toString() + 'px';
     var _a = board.getBoundingClientRect(), width = _a.width, height = _a.height;
     var x = getRandomNumber(0, width - parseInt(size)).toString() + 'px';
     var y = getRandomNumber(0, height - parseInt(size)).toString() + 'px';
@@ -20,6 +26,7 @@ var createCircles = function () {
     circle.style.height = size;
     circle.style.top = y;
     circle.style.left = x;
+    circle.style.backgroundColor = setColor();
     board.append(circle);
 };
 var startGame = function () {
@@ -45,8 +52,11 @@ var finishGame = function () {
         "\n        <div class=\"end-wrap\">\n            <h1>C\u0447\u0451\u0442: <span class=\"primary\">".concat(score, "</span></h1>    \n            <button id=\"retry\">\u041F\u043E\u043F\u0440\u043E\u0431\u043E\u0432\u0430\u0442\u044C \u0441\u043D\u043E\u0432\u0430</button>\n        </div>\n    ");
     document.querySelector('#retry').addEventListener('click', function () {
         location.reload();
-        board.innerHTML =
-            "\n                <h3 id=\"time-full\">\u041E\u0441\u0442\u0430\u043B\u043E\u0441\u044C <span id=\"time\">00:00</span></h3>\n                <div class=\"board\" id=\"board\"></div>\n            ";
+        // board.innerHTML =
+        //     `
+        //         <h3 id="time-full">Осталось <span id="time">00:00</span></h3>
+        //         <div class="board" id="board"></div>
+        //     `
         document.querySelector('#retry').removeEventListener('click', function () { return false; });
     });
 };

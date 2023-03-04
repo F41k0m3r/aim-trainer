@@ -3,6 +3,12 @@ const board:HTMLDivElement = document.querySelector('#board')
 const timeEl:HTMLSpanElement = document.querySelector('#time')
 let time:number;
 let score:number = 0;
+const colors:string[] = ['#FF0000', '#26e3c7', '#b700ff', '#17b000', '#d3a811', '#0008f5', '#ccc2ae', '#3ff523', '#543708']
+const setColor = ():string =>{
+    const number = Math.floor(Math.random() * colors.length)
+    const color = colors[colors.length - number]
+    return color
+}
 const setTime = (time:number|string):void => {
     timeEl.innerHTML = `00:${time}`
 }
@@ -21,6 +27,7 @@ const createCircles = ():void => {
     circle.style.height = size
     circle.style.top = y
     circle.style.left = x
+    circle.style.backgroundColor = setColor()
 
     board.append(circle)
 }
@@ -53,11 +60,11 @@ const finishGame = ():void => {
     `
     document.querySelector('#retry').addEventListener('click', ():void=>{
         location.reload()
-        board.innerHTML =
-            `
-                <h3 id="time-full">Осталось <span id="time">00:00</span></h3>
-                <div class="board" id="board"></div>
-            `
+        // board.innerHTML =
+        //     `
+        //         <h3 id="time-full">Осталось <span id="time">00:00</span></h3>
+        //         <div class="board" id="board"></div>
+        //     `
         document.querySelector('#retry').removeEventListener('click', ():boolean=>false)
     })
 }
